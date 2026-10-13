@@ -30,7 +30,7 @@ Le projet suit 6 parties progressives. Toutes ont été réalisées.
 
 - **Filtre de Sobel** : convolution par deux noyaux 3×3 qui estiment les dérivées partielles horizontale et verticale G<sub>x</sub> et G<sub>y</sub>. L'intensité du contour est la norme du gradient √(G<sub>x</sub>² + G<sub>y</sub>²). Les bords de l'image sont mis à 0.
 - **Renormalisation** : remise à l'échelle linéaire dans [0, 255] par le maximum de l'image. Dans notre représentation, la première ligne de chaque `ImageGris` stocke la valeur maximale. Cela permet de normaliser par le vrai maximum calculé, ce qui donne une image de contours moins bruitée que la correction fournie.
-- **Seuillage simple puis double seuillage (hystérésis)** : on part des pixels au-dessus d'un seuil fort, puis on étend itérativement aux pixels voisins (8-connexité) qui dépassent un seuil faible. C'est le principe du suivi de contours du détecteur de Canny.
+- **Seuillage simple puis double seuillage (hystérésis)** : on part des pixels au-dessus d'un seuil fort, puis on étend itérativement aux pixels voisins (8-connexité) qui dépassent un seuil faible.
 - **Luminance** : passage couleur → gris par Y = 0.2126 R + 0.7152 G + 0.0722 B (coefficients Rec. 709).
 - **Superpixels / K-moyennes** : chaque pixel devient un point de ℝ⁵, (i, j, λR, λG, λB). λ pondère la couleur par rapport à la position. Des pivots sont placés sur une grille de pas μ, puis l'algorithme alterne deux étapes : affectation de chaque point au pivot le plus proche (distance euclidienne) et recalcul de chaque pivot comme barycentre de sa classe. Chaque pixel prend ensuite la couleur de son pivot, et les frontières entre régions sont tracées en bleu, y compris sur les bords de l'image.
 
