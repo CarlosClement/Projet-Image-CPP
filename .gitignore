@@ -1,0 +1,54 @@
+# --- Compilation C++ ---
+*.o
+*.out
+core*
+# Exécutables produits par le Makefile
+pbm-affiche
+pbm-tout-en-un
+pgm-tout-en-un
+sobel-tout-en-un
+seuillage-tout-en-un
+renormalise
+TIN
+ppm-test
+pgm-test
+sobel-test
+seuillage-test
+gris-couleurs-test
+superpixel-test
+
+# --- Images générées ---
+# Conversions JPEG -> PGM/PPM faites par `make images` (plusieurs Mo, régénérables)
+images/*.ppm
+images/*.pgm
+!images/brain.pgm
+!images/illusion.pgm
+# Sorties des programmes de test (on garde les dossiers correction/ fournis)
+gris-couleurs/*.*
+ppm/*.*
+pbm/*.*
+pgm/*.*
+sobel/*.*
+seuillage/*.*
+seuillage_double/*.*
+superpixel/*.*
+
+# --- Jupyter / Python ---
+.ipynb_checkpoints/
+__pycache__/
+*.pyc
+
+# --- Infrastructure de notation du cours (ne pas publier) ---
+.gradebook.db
+.gitlab-ci.yml
+autograded/
+feedback/
+feedback_generated/
+
+# --- Divers ---
+*~
+.DS_Store
+*.log
+*.aux
+# garder les dossiers de sortie vides dans le dépôt
+!*/.gitkeep
